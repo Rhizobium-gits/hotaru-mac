@@ -1,5 +1,9 @@
 # Hotaru for Mac
 
+<p>
+  <a href="https://github.com/Rhizobium-gits/hotaru-mac/releases"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FRhizobium-gits%2Fhotaru-mac%2Fstats%2Fstats.json&query=%24.total&label=downloads&style=for-the-badge&labelColor=0d0d10&color=2b3014" alt="downloads"></a>
+</p>
+
 複数の Mac で動いている AI（Claude Code・Codex・Ollama など）の進み具合を、ひとつの一覧で。
 Mac 版は無料で、すべての機能が使えます。iPhone・iPad 版は App Store から。
 
@@ -12,6 +16,10 @@ Mac 版は無料で、すべての機能が使えます。iPhone・iPad 版は A
 3. メニューバーの ✦ から使います。新しい版が出ると、アプリの中から 1 回押すだけで更新できます。
 
 動作環境：macOS 14 以降（Apple シリコン・Intel）。
+
+## ダウンロード数
+
+<a href="https://github.com/Rhizobium-gits/hotaru-mac/blob/stats/stats.json"><img src="https://raw.githubusercontent.com/Rhizobium-gits/hotaru-mac/stats/downloads-ja.svg" width="820" alt="Mac 版のダウンロード（1 日ごと。リリースの Hotaru.zip。毎日自動で更新）"></a>
 
 ---
 
@@ -27,3 +35,7 @@ The Mac app is free with every feature. The iPhone and iPad app is on the App St
 3. Use it from the ✦ in the menu bar. New versions can be installed from inside the app with one click.
 
 Requires macOS 14 or later.
+
+## Downloads
+
+<a href="https://github.com/Rhizobium-gits/hotaru-mac/blob/stats/stats.json"><img src="https://raw.githubusercontent.com/Rhizobium-gits/hotaru-mac/stats/downloads-en.svg" width="820" alt="Mac app downloads per day (Hotaru.zip from GitHub Releases, updated daily)"></a>

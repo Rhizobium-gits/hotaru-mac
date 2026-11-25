@@ -1,0 +1,35 @@
+name: Download stats
+
+# README のバッジと「Mac 版のダウンロード（1 日ごと）」のグラフ（stats ブランチの stats.json・downloads-*.svg）を毎日数え直す。
+# リリースの Hotaru.zip（と .dmg）のダウンロード数だけを数えるので、シークレットは要らない（このワークフローの GITHUB_TOKEN だけ）。
+# 書くのは stats ブランチだけ（main とリリースには触れない。GITHUB_TOKEN で作ったコミットは、ほかのワークフローも動かさない）。
+on:
+  schedule:
+    - cron: "37 21 * * *" # 毎日 21:37 UTC（日本時間 6:37）
+  workflow_dispatch:
+
+# stats ブランチを作る・書く（contents: write）と、リリースを読む（contents に含まれる）だけ
+permissions:
+  contents: write
+
+concurrency:
+  group: download-stats
+  cancel-in-progress: false
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # 自分の clone を数に入れないよう、checkout せずに API でこのコミットのスクリプトだけ取る
+      # （download-stats.sh が、同じフォルダの download-chart.py でグラフを作る）
+      - name: Count downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HOTARU_REPO: ${{ github.repository }}
+        run: |
+          for f in download-stats.sh download-chart.py; do
+            gh api -H "Accept: application/vnd.github.raw" \
+              "repos/$GITHUB_REPOSITORY/contents/scripts/$f?ref=$GITHUB_SHA" > "$RUNNER_TEMP/$f"
+          done
+          bash "$RUNNER_TEMP/download-stats.sh"
