@@ -6,6 +6,7 @@
 <text x="32" y="74" font-size="12" fill="#a1a1a6">リリースの Hotaru.zip · 毎日自動で更新</text>
 <text x="788" y="32" font-size="11" fill="#a1a1a6" text-anchor="end" letter-spacing="0.6">累計</text>
 <text x="788" y="74" font-size="40" font-weight="700" fill="#f5f5f7" text-anchor="end" letter-spacing="-1">6</text>
+<text x="788" y="96" font-size="12" fill="#e6c56b" text-anchor="end">うち auralune.tech 経由 0</text>
 <path d="M211.0,238.0V143.0Q211.0,140.0 214.0,140.0H228.0Q231.0,140.0 231.0,143.0V238.0Z" fill="#ddef73"/>
 <text x="221.0" y="133.0" font-size="11" font-weight="600" fill="#f5f5f7" text-anchor="middle">5</text>
 <text x="221.0" y="258" font-size="11" fill="#a1a1a6" text-anchor="middle">11/25</text>
