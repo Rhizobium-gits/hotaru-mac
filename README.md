@@ -2,6 +2,7 @@
 
 <p>
   <a href="https://github.com/Rhizobium-gits/hotaru-mac/releases"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FRhizobium-gits%2Fhotaru-mac%2Fstats%2Fstats.json&query=%24.total&label=downloads&style=for-the-badge&labelColor=0d0d10&color=2b3014" alt="downloads"></a>
+  <a href="https://auralune.tech/"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FRhizobium-gits%2Fhotaru-mac%2Fstats%2Fstats.json&query=%24.site&label=via%20auralune.tech&style=for-the-badge&labelColor=0d0d10&color=e6c56b" alt="via auralune.tech"></a>
 </p>
 
 複数の Mac で動いている AI（Claude Code・Codex・Ollama など）の進み具合を、ひとつの一覧で。
@@ -20,6 +21,8 @@ Mac 版は無料で、すべての機能が使えます。iPhone・iPad 版は A
 ## ダウンロード数
 
 <a href="https://github.com/Rhizobium-gits/hotaru-mac/blob/stats/stats.json"><img src="https://raw.githubusercontent.com/Rhizobium-gits/hotaru-mac/stats/downloads-ja.svg" width="820" alt="Mac 版のダウンロード（1 日ごと。リリースの Hotaru.zip。毎日自動で更新）"></a>
+
+<sub>グラフ右上の金色の数とバッジの「via auralune.tech」は、[auralune.tech](https://auralune.tech/products/hotaru/) のダウンロードのボタンが押された数（Hotaru.zip へ送った数）です。リリースのダウンロード数の内訳なので、合計には足しません。</sub>
 
 ---
 

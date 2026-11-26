@@ -45,14 +45,24 @@ NOW="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 RELEASES="$(gh api "repos/$REPO/releases" --paginate --jq '.[] | select(.draft | not) | {tag: .tag_name, published: .published_at,
   mac: ([.assets[] | select(.name | test("\\.(zip|dmg)$"; "i")) | .download_count] | add // 0)}' | jq -s 'sort_by(.published)')"
 
-NEW="$(jq -n --argjson old "$OLD" --argjson releases "$RELEASES" --arg today "$TODAY" --arg now "$NOW" '
+# auralune.tech のダウンロードのボタンが押された数（https://auralune.tech/dl/hotaru-mac を通った数）。
+# リリースのファイルへ送るので、上のダウンロード数の内訳（total には足さない）。シークレット AURALUNE_STATS_KEY で読む。
+# 読めないときは貯めてある数のまま
+SITE=null
+if [[ -n "${AURALUNE_STATS_KEY:-}" ]]; then
+  SITE="$(curl -fsS --max-time 30 "https://auralune.tech/api/dl-stats?key=$AURALUNE_STATS_KEY&format=json" |
+    jq --arg ids "${AURALUNE_SITE_IDS:-hotaru-mac}" '($ids | split(",")) as $w | [.products[] | select(.id as $i | $w | index($i)) | .total] | add // 0')" || SITE=null
+  [[ "$SITE" =~ ^[0-9]+$ ]] || { echo "auralune.tech の数を読めませんでした。貯めてある数のままにします" >&2; SITE=null; }
+fi
+
+NEW="$(jq -n --argjson site "$SITE" --argjson old "$OLD" --argjson releases "$RELEASES" --arg today "$TODAY" --arg now "$NOW" '
   ([$releases[] | .mac] | add // 0) as $mac
   | ($old.daily // {}) as $daily
   # 今日の累計：数が変わったときだけ時刻を新しくする（リリースがまだ無い日は記録しない）
   | (if ($releases | length) == 0 then $daily
      else ($daily + {($today): (if ($daily[$today].mac == $mac) then $daily[$today] else {mac: $mac, at: $now} end)})
      end | to_entries | sort_by(.key) | from_entries) as $days
-  | {total: $mac, mac: $mac, daily: $days, releases: $releases}')"
+  | {total: $mac, mac: $mac, daily: $days, releases: $releases, site: (if $site == null then ($old.site // 0) else $site end)}')"
 
 if [[ $DRY == 1 ]]; then
   printf '%s\n' "$NEW" | jq .

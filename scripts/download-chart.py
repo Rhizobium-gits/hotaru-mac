@@ -32,6 +32,7 @@ EDGE = "#1f2419"
 WHITE = "#f5f5f7"
 BAR = "#ddef73"                # ほたるの光（アイコンの色）
 GRAY = "#a1a1a6"
+GOLD = "#e6c56b"   # auralune.tech
 DIM = "#5c5f55"
 LINE = "#2a2d24"
 FONT = ("-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', "
@@ -42,6 +43,7 @@ TEXTS = {
         "title": "Mac 版のダウンロード（1 日ごと）",
         "sub": "リリースの Hotaru.zip · 毎日自動で更新",
         "total": "累計",
+        "site": "うち auralune.tech 経由 {n}",
         "note1": "更新 {date} UTC",
         "note2": "※ 日ごとの数は推定（GitHub は累計しか出さないので、時間に比例して分けた）",
         "empty": "まだリリースがありません",
@@ -50,6 +52,7 @@ TEXTS = {
         "title": "Mac app downloads per day",
         "sub": "Hotaru.zip from GitHub Releases · updated daily",
         "total": "Total",
+        "site": "via auralune.tech {n}",
         "note1": "Updated {date} UTC",
         "note2": "* Daily numbers are estimates (GitHub gives only totals; split in proportion to time)",
         "empty": "No releases yet",
@@ -58,6 +61,7 @@ TEXTS = {
         "title": "Mac 版每日下载量",
         "sub": "GitHub Releases 中的 Hotaru.zip · 每天自动更新",
         "total": "累计",
+        "site": "其中经由 auralune.tech {n}",
         "note1": "更新于 {date} UTC",
         "note2": "※ 每日数量为估算（GitHub 只提供累计，按时间比例分配）",
         "empty": "还没有发布版本",
@@ -161,6 +165,9 @@ def render(stats, lang, today):
     a(f'<text x="{W - PAD}" y="32" font-size="11" fill="{GRAY}" text-anchor="end" letter-spacing="0.6">{escape(t["total"])}</text>')
     a(f'<text x="{W - PAD}" y="74" font-size="40" font-weight="700" fill="{WHITE}" text-anchor="end" letter-spacing="-1">'
       f'{int(stats.get("total", 0)):,}</text>')
+    if "site" in stats:  # presses of the download button on auralune.tech (part of the total, not added to it)
+        a(f'<text x="{W - PAD}" y="96" font-size="12" fill="{GOLD}" text-anchor="end">'
+          f'{escape(t["site"].format(n=format(int(stats["site"]), ",")))}</text>')
 
     if not days:
         a(f'<text x="{W / 2}" y="{(Y0 + Y1) / 2}" font-size="13" fill="{GRAY}" text-anchor="middle">{escape(t["empty"])}</text>')

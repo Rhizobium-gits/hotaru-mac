@@ -26,6 +26,7 @@ jobs:
       - name: Count downloads
         env:
           GH_TOKEN: ${{ github.token }}
+          AURALUNE_STATS_KEY: ${{ secrets.AURALUNE_STATS_KEY }}
           HOTARU_REPO: ${{ github.repository }}
         run: |
           for f in download-stats.sh download-chart.py; do
