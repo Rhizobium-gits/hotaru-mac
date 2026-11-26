@@ -7,7 +7,7 @@
 複数の Mac で動いている AI（Claude Code・Codex・Ollama など）の進み具合を、ひとつの一覧で。
 Mac 版は無料で、すべての機能が使えます。iPhone・iPad 版は App Store から。
 
-**ダウンロード：[Hotaru.zip（最新版）](https://github.com/Rhizobium-gits/hotaru-mac/releases/latest/download/Hotaru.zip)**　・　紹介ページ：https://hotaru-ai.vercel.app　・　制作：[Auralune Technologies Studio](https://auralunetech.vercel.app/products/hotaru/)
+**ダウンロード：[Hotaru.zip（最新版）](https://github.com/Rhizobium-gits/hotaru-mac/releases/latest/download/Hotaru.zip)**　・　紹介ページ：https://auralunetech.vercel.app/products/hotaru/ （制作：Auralune Technologies Studio）
 
 ## 入れ方
 
@@ -28,7 +28,7 @@ Mac 版は無料で、すべての機能が使えます。iPhone・iPad 版は A
 See the progress of the AI (Claude Code, Codex, Ollama and more) running on all your Macs in one list.
 The Mac app is free with every feature. The iPhone and iPad app is on the App Store.
 
-**Download: [Hotaru.zip (latest)](https://github.com/Rhizobium-gits/hotaru-mac/releases/latest/download/Hotaru.zip)** · Website: https://hotaru-ai.vercel.app · Made by [Auralune Technologies Studio](https://auralunetech.vercel.app/en/products/hotaru/)
+**Download: [Hotaru.zip (latest)](https://github.com/Rhizobium-gits/hotaru-mac/releases/latest/download/Hotaru.zip)** · Website: https://auralunetech.vercel.app/en/products/hotaru/ (made by Auralune Technologies Studio)
 
 1. Open Hotaru.zip and move Hotaru to your Applications folder.
 2. Open it. If macOS says it's an app downloaded from the internet, click "Open" (first launch only). Hotaru is signed with Developer ID and notarized by Apple.
